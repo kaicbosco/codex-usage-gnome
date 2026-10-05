@@ -17,37 +17,6 @@ const THEMES = [
     ['industrial', 'Industrial Dark'],
 ];
 
-function stripAnsi(text) {
-    return text.replace(/\x1B(?:[@-Z\\-_]|\[[0-?]*[ -/]*[@-~])/g, '').trim();
-}
-
-function extractUsage(text) {
-    const clean = stripAnsi(text);
-
-    const fiveBlock = clean.match(/\[\s*5H\b([^\]]*)\]/i)?.[1] ?? '';
-    const weekBlock = clean.match(/\[\s*(?:W|WEEK)\b([^\]]*)\]/i)?.[1] ?? '';
-
-    const parseBlock = block => {
-        const percent = block.match(/(\d{1,3})%/);
-        const reset = block.match(/(\d+d\d+h|\d+d|\d+h\d+m|\d+h|\d+m)/i);
-        return {
-            percent: percent ? Number(percent[1]) : null,
-            reset: reset ? reset[1] : '—',
-        };
-    };
-
-    const five = parseBlock(fiveBlock);
-    const week = parseBlock(weekBlock);
-
-    return {
-        clean,
-        fivePercent: five.percent,
-        weekPercent: week.percent,
-        fiveReset: five.reset,
-        weekReset: week.reset,
-    };
-}
-
 function stateClass(percent) {
     if (percent === null)
         return 'unknown';
@@ -194,21 +163,13 @@ class CodexUsageIndicator extends PanelMenu.Button {
     }
 
     _spawnUsageCommand() {
-        const home = GLib.get_home_dir();
-        const command = `${home}/.local/bin/codex-usage`;
-        const path = `${home}/.local/bin:/usr/local/bin:/usr/bin:/bin`;
+        const helper = GLib.build_filenamev([
+            this._extension.path,
+            'codex_usage_helper.py',
+        ]);
 
-        // Usamos /usr/bin/env para que o Python receba explicitamente o PATH
-        // correto. O GNOME Shell pode iniciar extensões com um PATH reduzido.
         return Gio.Subprocess.new(
-            [
-                '/usr/bin/env',
-                `HOME=${home}`,
-                `PATH=${path}`,
-                command,
-                '--once',
-                '--compact',
-            ],
+            ['/usr/bin/python3', helper],
             Gio.SubprocessFlags.STDOUT_PIPE | Gio.SubprocessFlags.STDERR_PIPE
         );
     }
@@ -235,24 +196,35 @@ class CodexUsageIndicator extends PanelMenu.Button {
             });
 
             if (!ok)
-                throw new Error('Falha ao executar codex-usage.');
+                throw new Error('Falha ao executar helper de uso do Codex.');
 
-            const err = stripAnsi(stderr ?? '');
+            const err = (stderr ?? '').trim();
             if (err)
                 throw new Error(err);
 
-            const parsed = extractUsage(stdout ?? '');
-            if (parsed.fivePercent === null || parsed.weekPercent === null)
-                throw new Error(`Saída não reconhecida: ${parsed.clean || '(vazia)'}`);
+            let data;
+            try {
+                data = JSON.parse((stdout ?? '').trim());
+            } catch (_) {
+                throw new Error(`Saída inválida do helper: ${(stdout ?? '').trim() || '(vazia)'}`);
+            }
 
-            this._five.setUsage(parsed.fivePercent, parsed.fiveReset);
-            this._week.setUsage(parsed.weekPercent, parsed.weekReset);
+            const fivePercent = Number(data?.five?.percent);
+            const weekPercent = Number(data?.week?.percent);
+            const fiveReset = data?.five?.reset ?? '—';
+            const weekReset = data?.week?.reset ?? '—';
+
+            if (!Number.isFinite(fivePercent) || !Number.isFinite(weekPercent))
+                throw new Error('Helper não retornou percentuais válidos.');
+
+            this._five.setUsage(fivePercent, fiveReset);
+            this._week.setUsage(weekPercent, weekReset);
 
             this._fiveItem.label.set_text(
-                `5 horas: ${parsed.fivePercent}% livre • reset em ${parsed.fiveReset}`
+                `5 horas: ${fivePercent}% livre • reset em ${fiveReset}`
             );
             this._weekItem.label.set_text(
-                `Semanal: ${parsed.weekPercent}% livre • reset em ${parsed.weekReset}`
+                `Semanal: ${weekPercent}% livre • reset em ${weekReset}`
             );
             this._statusItem.label.set_text('Status: conectado');
         } catch (e) {
