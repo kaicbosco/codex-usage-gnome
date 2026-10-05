@@ -15,6 +15,12 @@ const THEMES = [
     ['glass', 'Glass'],
     ['tokyo', 'Tokyo Night'],
     ['industrial', 'Industrial Dark'],
+    ['catppuccin', 'Catppuccin Mocha'],
+    ['nord', 'Nord'],
+    ['dracula', 'Dracula'],
+    ['amoled', 'AMOLED'],
+    ['neon', 'Cyber Neon'],
+    ['gruvbox', 'Gruvbox Dark'],
 ];
 
 function stateClass(percent) {
