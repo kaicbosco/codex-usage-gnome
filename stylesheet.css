@@ -41,35 +41,22 @@
   background-color: rgba(255, 255, 255, 0.12);
   border-color: rgba(255, 255, 255, 0.15);
 }
-.theme-gnome .codex-usage-label {
-  font-size: 0.86em;
-}
-.theme-gnome .codex-usage-percent {
-  font-size: 0.88em;
-}
-.theme-gnome .codex-usage-reset {
-  font-size: 0.80em;
-  opacity: 0.68;
-}
+.theme-gnome .codex-usage-label { font-size: 0.86em; }
+.theme-gnome .codex-usage-percent { font-size: 0.88em; }
+.theme-gnome .codex-usage-reset { font-size: 0.80em; opacity: 0.68; }
 .theme-gnome .codex-progress-track {
   height: 4px;
   border-radius: 999px;
   background-color: rgba(255, 255, 255, 0.12);
 }
-.theme-gnome .codex-progress-fill {
-  height: 4px;
-  border-radius: 999px;
-}
+.theme-gnome .codex-progress-fill { height: 4px; border-radius: 999px; }
 .theme-gnome .codex-progress-fill.ok { background-color: rgba(255, 255, 255, 0.88); }
 .theme-gnome .codex-progress-fill.warn { background-color: rgba(255, 255, 255, 0.66); }
 .theme-gnome .codex-progress-fill.danger { background-color: rgba(255, 255, 255, 0.44); }
 .theme-gnome .codex-progress-fill.unknown { background-color: rgba(255, 255, 255, 0.18); }
 
 /* Glass */
-.theme-glass {
-  spacing: 10px;
-  margin-left: 14px;
-}
+.theme-glass { spacing: 10px; margin-left: 14px; }
 .theme-glass .codex-usage-card {
   spacing: 8px;
   padding: 4px 11px;
@@ -98,10 +85,7 @@
 .theme-glass .codex-progress-fill.unknown { background-color: rgba(255, 255, 255, 0.18); }
 
 /* Tokyo Night */
-.theme-tokyo {
-  spacing: 9px;
-  margin-left: 14px;
-}
+.theme-tokyo { spacing: 9px; margin-left: 14px; }
 .theme-tokyo .codex-usage-card {
   spacing: 8px;
   padding: 4px 10px;
@@ -144,10 +128,7 @@
 .theme-tokyo .codex-progress-fill.unknown { background-color: #565f89; }
 
 /* Industrial Dark */
-.theme-industrial {
-  spacing: 6px;
-  margin-left: 14px;
-}
+.theme-industrial { spacing: 6px; margin-left: 14px; }
 .theme-industrial .codex-usage-card {
   spacing: 7px;
   padding: 3px 9px;
@@ -190,3 +171,141 @@
 .theme-industrial .codex-progress-fill.warn { background-color: #d4ad67; }
 .theme-industrial .codex-progress-fill.danger { background-color: #c96f78; }
 .theme-industrial .codex-progress-fill.unknown { background-color: #5d646b; }
+
+/* Catppuccin Mocha */
+.theme-catppuccin { spacing: 9px; margin-left: 14px; }
+.theme-catppuccin .codex-usage-card {
+  spacing: 8px;
+  padding: 4px 10px;
+  border-radius: 12px;
+  background-color: rgba(30, 30, 46, 0.94);
+  border: 1px solid rgba(180, 190, 254, 0.24);
+}
+.theme-catppuccin .codex-usage-card:hover {
+  background-color: rgba(49, 50, 68, 0.98);
+  border-color: rgba(180, 190, 254, 0.48);
+}
+.theme-catppuccin .codex-usage-label { color: #cba6f7; font-weight: 800; }
+.theme-catppuccin .codex-usage-percent { color: #cdd6f4; font-weight: 800; }
+.theme-catppuccin .codex-usage-reset { color: #a6adc8; font-size: 0.79em; }
+.theme-catppuccin .codex-progress-track { border-radius: 999px; background-color: #45475a; }
+.theme-catppuccin .codex-progress-fill { border-radius: 999px; }
+.theme-catppuccin .codex-progress-fill.ok { background-color: #a6e3a1; }
+.theme-catppuccin .codex-progress-fill.warn { background-color: #f9e2af; }
+.theme-catppuccin .codex-progress-fill.danger { background-color: #f38ba8; }
+.theme-catppuccin .codex-progress-fill.unknown { background-color: #585b70; }
+
+/* Nord */
+.theme-nord { spacing: 9px; margin-left: 14px; }
+.theme-nord .codex-usage-card {
+  spacing: 8px;
+  padding: 4px 10px;
+  border-radius: 10px;
+  background-color: rgba(46, 52, 64, 0.94);
+  border: 1px solid rgba(136, 192, 208, 0.28);
+}
+.theme-nord .codex-usage-card:hover {
+  background-color: rgba(59, 66, 82, 0.98);
+  border-color: rgba(136, 192, 208, 0.52);
+}
+.theme-nord .codex-usage-label { color: #88c0d0; font-weight: 800; }
+.theme-nord .codex-usage-percent { color: #eceff4; font-weight: 800; }
+.theme-nord .codex-usage-reset { color: #d8dee9; font-size: 0.79em; opacity: 0.82; }
+.theme-nord .codex-progress-track { border-radius: 999px; background-color: #4c566a; }
+.theme-nord .codex-progress-fill { border-radius: 999px; }
+.theme-nord .codex-progress-fill.ok { background-color: #a3be8c; }
+.theme-nord .codex-progress-fill.warn { background-color: #ebcb8b; }
+.theme-nord .codex-progress-fill.danger { background-color: #bf616a; }
+.theme-nord .codex-progress-fill.unknown { background-color: #616e88; }
+
+/* Dracula */
+.theme-dracula { spacing: 9px; margin-left: 14px; }
+.theme-dracula .codex-usage-card {
+  spacing: 8px;
+  padding: 4px 10px;
+  border-radius: 11px;
+  background-color: rgba(40, 42, 54, 0.96);
+  border: 1px solid rgba(189, 147, 249, 0.30);
+}
+.theme-dracula .codex-usage-card:hover {
+  background-color: rgba(68, 71, 90, 0.98);
+  border-color: rgba(189, 147, 249, 0.55);
+}
+.theme-dracula .codex-usage-label { color: #bd93f9; font-weight: 800; }
+.theme-dracula .codex-usage-percent { color: #f8f8f2; font-weight: 800; }
+.theme-dracula .codex-usage-reset { color: #8be9fd; font-size: 0.79em; }
+.theme-dracula .codex-progress-track { border-radius: 999px; background-color: #44475a; }
+.theme-dracula .codex-progress-fill { border-radius: 999px; }
+.theme-dracula .codex-progress-fill.ok { background-color: #50fa7b; }
+.theme-dracula .codex-progress-fill.warn { background-color: #f1fa8c; }
+.theme-dracula .codex-progress-fill.danger { background-color: #ff5555; }
+.theme-dracula .codex-progress-fill.unknown { background-color: #6272a4; }
+
+/* AMOLED */
+.theme-amoled { spacing: 8px; margin-left: 14px; }
+.theme-amoled .codex-usage-card {
+  spacing: 8px;
+  padding: 4px 10px;
+  border-radius: 9px;
+  background-color: rgba(0, 0, 0, 0.98);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+}
+.theme-amoled .codex-usage-card:hover {
+  background-color: rgba(10, 10, 10, 1.0);
+  border-color: rgba(255, 255, 255, 0.24);
+}
+.theme-amoled .codex-usage-label { color: #ffffff; font-weight: 800; }
+.theme-amoled .codex-usage-percent { color: #ffffff; font-weight: 800; }
+.theme-amoled .codex-usage-reset { color: #bdbdbd; font-size: 0.78em; }
+.theme-amoled .codex-progress-track { border-radius: 999px; background-color: #1a1a1a; }
+.theme-amoled .codex-progress-fill { border-radius: 999px; }
+.theme-amoled .codex-progress-fill.ok { background-color: #ffffff; }
+.theme-amoled .codex-progress-fill.warn { background-color: #bdbdbd; }
+.theme-amoled .codex-progress-fill.danger { background-color: #707070; }
+.theme-amoled .codex-progress-fill.unknown { background-color: #2b2b2b; }
+
+/* Cyber Neon */
+.theme-neon { spacing: 10px; margin-left: 14px; }
+.theme-neon .codex-usage-card {
+  spacing: 8px;
+  padding: 4px 10px;
+  border-radius: 8px;
+  background-color: rgba(8, 8, 20, 0.96);
+  border: 1px solid rgba(0, 255, 255, 0.34);
+}
+.theme-neon .codex-usage-card:hover {
+  background-color: rgba(12, 12, 30, 0.99);
+  border-color: rgba(255, 0, 200, 0.58);
+}
+.theme-neon .codex-usage-label { color: #00f5ff; font-weight: 900; letter-spacing: 1px; }
+.theme-neon .codex-usage-percent { color: #ff4fd8; font-weight: 900; }
+.theme-neon .codex-usage-reset { color: #8cf7ff; font-size: 0.78em; }
+.theme-neon .codex-progress-track { border-radius: 2px; background-color: #17172b; border: 1px solid rgba(0, 245, 255, 0.18); }
+.theme-neon .codex-progress-fill { border-radius: 2px; }
+.theme-neon .codex-progress-fill.ok { background-color: #00f5ff; }
+.theme-neon .codex-progress-fill.warn { background-color: #ffe66d; }
+.theme-neon .codex-progress-fill.danger { background-color: #ff4fd8; }
+.theme-neon .codex-progress-fill.unknown { background-color: #30304a; }
+
+/* Gruvbox Dark */
+.theme-gruvbox { spacing: 8px; margin-left: 14px; }
+.theme-gruvbox .codex-usage-card {
+  spacing: 8px;
+  padding: 4px 10px;
+  border-radius: 7px;
+  background-color: rgba(40, 40, 40, 0.96);
+  border: 1px solid rgba(214, 153, 33, 0.28);
+}
+.theme-gruvbox .codex-usage-card:hover {
+  background-color: rgba(60, 56, 54, 0.98);
+  border-color: rgba(214, 153, 33, 0.52);
+}
+.theme-gruvbox .codex-usage-label { color: #fabd2f; font-weight: 800; }
+.theme-gruvbox .codex-usage-percent { color: #ebdbb2; font-weight: 800; }
+.theme-gruvbox .codex-usage-reset { color: #bdae93; font-size: 0.79em; }
+.theme-gruvbox .codex-progress-track { border-radius: 3px; background-color: #504945; }
+.theme-gruvbox .codex-progress-fill { border-radius: 3px; }
+.theme-gruvbox .codex-progress-fill.ok { background-color: #b8bb26; }
+.theme-gruvbox .codex-progress-fill.warn { background-color: #fabd2f; }
+.theme-gruvbox .codex-progress-fill.danger { background-color: #fb4934; }
+.theme-gruvbox .codex-progress-fill.unknown { background-color: #665c54; }
