@@ -1,0 +1,192 @@
+.codex-usage-row {
+  spacing: 8px;
+  margin-left: 12px;
+}
+
+.codex-usage-card {
+  spacing: 7px;
+  padding: 3px 9px;
+}
+
+.codex-usage-label {
+  font-weight: 700;
+  min-width: 28px;
+}
+
+.codex-usage-percent {
+  font-weight: 700;
+  min-width: 36px;
+}
+
+.codex-usage-reset {
+  min-width: 52px;
+}
+
+.codex-progress-track {
+  width: 72px;
+  height: 5px;
+}
+
+.codex-progress-fill {
+  height: 5px;
+}
+
+/* GNOME */
+.theme-gnome .codex-usage-card {
+  border-radius: 10px;
+  background-color: rgba(255, 255, 255, 0.07);
+  border: 1px solid rgba(255, 255, 255, 0.10);
+}
+.theme-gnome .codex-usage-card:hover {
+  background-color: rgba(255, 255, 255, 0.12);
+  border-color: rgba(255, 255, 255, 0.15);
+}
+.theme-gnome .codex-usage-label {
+  font-size: 0.86em;
+}
+.theme-gnome .codex-usage-percent {
+  font-size: 0.88em;
+}
+.theme-gnome .codex-usage-reset {
+  font-size: 0.80em;
+  opacity: 0.68;
+}
+.theme-gnome .codex-progress-track {
+  height: 4px;
+  border-radius: 999px;
+  background-color: rgba(255, 255, 255, 0.12);
+}
+.theme-gnome .codex-progress-fill {
+  height: 4px;
+  border-radius: 999px;
+}
+.theme-gnome .codex-progress-fill.ok { background-color: rgba(255, 255, 255, 0.88); }
+.theme-gnome .codex-progress-fill.warn { background-color: rgba(255, 255, 255, 0.66); }
+.theme-gnome .codex-progress-fill.danger { background-color: rgba(255, 255, 255, 0.44); }
+.theme-gnome .codex-progress-fill.unknown { background-color: rgba(255, 255, 255, 0.18); }
+
+/* Glass */
+.theme-glass {
+  spacing: 10px;
+  margin-left: 14px;
+}
+.theme-glass .codex-usage-card {
+  spacing: 8px;
+  padding: 4px 11px;
+  border-radius: 14px;
+  background-color: rgba(255, 255, 255, 0.10);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+}
+.theme-glass .codex-usage-card:hover {
+  background-color: rgba(255, 255, 255, 0.16);
+  border-color: rgba(255, 255, 255, 0.25);
+}
+.theme-glass .codex-usage-label { font-size: 0.88em; min-width: 30px; }
+.theme-glass .codex-usage-percent { font-size: 0.90em; min-width: 38px; }
+.theme-glass .codex-usage-reset { font-size: 0.80em; opacity: 0.72; min-width: 54px; }
+.theme-glass .codex-progress-track {
+  width: 72px;
+  height: 5px;
+  border-radius: 999px;
+  background-color: rgba(255, 255, 255, 0.10);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+.theme-glass .codex-progress-fill { height: 5px; border-radius: 999px; }
+.theme-glass .codex-progress-fill.ok { background-color: rgba(120, 200, 255, 0.95); }
+.theme-glass .codex-progress-fill.warn { background-color: rgba(255, 205, 100, 0.95); }
+.theme-glass .codex-progress-fill.danger { background-color: rgba(255, 110, 130, 0.95); }
+.theme-glass .codex-progress-fill.unknown { background-color: rgba(255, 255, 255, 0.18); }
+
+/* Tokyo Night */
+.theme-tokyo {
+  spacing: 9px;
+  margin-left: 14px;
+}
+.theme-tokyo .codex-usage-card {
+  spacing: 8px;
+  padding: 4px 10px;
+  border-radius: 9px;
+  background-color: rgba(26, 27, 38, 0.88);
+  border: 1px solid rgba(122, 162, 247, 0.30);
+}
+.theme-tokyo .codex-usage-card:hover {
+  background-color: rgba(36, 40, 59, 0.95);
+  border-color: rgba(122, 162, 247, 0.55);
+}
+.theme-tokyo .codex-usage-label {
+  font-weight: 800;
+  font-size: 0.86em;
+  color: #7aa2f7;
+  min-width: 30px;
+}
+.theme-tokyo .codex-usage-percent {
+  font-weight: 800;
+  font-size: 0.90em;
+  color: #c0caf5;
+  min-width: 38px;
+}
+.theme-tokyo .codex-usage-reset {
+  font-size: 0.79em;
+  color: #9aa5ce;
+  opacity: 0.90;
+  min-width: 54px;
+}
+.theme-tokyo .codex-progress-track {
+  width: 72px;
+  height: 5px;
+  border-radius: 999px;
+  background-color: rgba(65, 72, 104, 0.75);
+}
+.theme-tokyo .codex-progress-fill { height: 5px; border-radius: 999px; }
+.theme-tokyo .codex-progress-fill.ok { background-color: #7aa2f7; }
+.theme-tokyo .codex-progress-fill.warn { background-color: #e0af68; }
+.theme-tokyo .codex-progress-fill.danger { background-color: #f7768e; }
+.theme-tokyo .codex-progress-fill.unknown { background-color: #565f89; }
+
+/* Industrial Dark */
+.theme-industrial {
+  spacing: 6px;
+  margin-left: 14px;
+}
+.theme-industrial .codex-usage-card {
+  spacing: 7px;
+  padding: 3px 9px;
+  border-radius: 4px;
+  background-color: rgba(8, 10, 12, 0.92);
+  border: 1px solid rgba(170, 180, 190, 0.22);
+}
+.theme-industrial .codex-usage-card:hover {
+  background-color: rgba(18, 21, 24, 0.98);
+  border-color: rgba(190, 200, 210, 0.36);
+}
+.theme-industrial .codex-usage-label {
+  font-weight: 800;
+  font-size: 0.82em;
+  letter-spacing: 1px;
+  color: #d6d9dc;
+  min-width: 30px;
+}
+.theme-industrial .codex-usage-percent {
+  font-weight: 800;
+  font-size: 0.86em;
+  color: #f0f2f4;
+  min-width: 36px;
+}
+.theme-industrial .codex-usage-reset {
+  font-size: 0.76em;
+  color: #a4abb2;
+  opacity: 0.92;
+  min-width: 54px;
+}
+.theme-industrial .codex-progress-track {
+  width: 72px;
+  height: 6px;
+  border-radius: 1px;
+  background-color: rgba(120, 130, 140, 0.16);
+  border: 1px solid rgba(160, 170, 180, 0.10);
+}
+.theme-industrial .codex-progress-fill { height: 6px; border-radius: 1px; }
+.theme-industrial .codex-progress-fill.ok { background-color: #8fbf9f; }
+.theme-industrial .codex-progress-fill.warn { background-color: #d4ad67; }
+.theme-industrial .codex-progress-fill.danger { background-color: #c96f78; }
+.theme-industrial .codex-progress-fill.unknown { background-color: #5d646b; }
