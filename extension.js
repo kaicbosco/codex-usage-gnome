@@ -19,8 +19,14 @@ const THEMES = [
     ['nord', 'Nord'],
     ['dracula', 'Dracula'],
     ['amoled', 'AMOLED'],
-    ['neon', 'Cyber Neon'],
+    ['cyberneon', 'Cyber Neon'],
     ['gruvbox', 'Gruvbox Dark'],
+    ['nothing', 'Nothing OS'],
+    ['macos', 'macOS Glass'],
+    ['material', 'Material You'],
+    ['steam', 'Steam'],
+    ['cyberpunk', 'Cyberpunk 2077'],
+    ['retrocrt', 'Retro CRT'],
 ];
 
 function stateClass(percent) {
