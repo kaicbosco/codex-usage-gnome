@@ -196,17 +196,21 @@ class CodexUsageIndicator extends PanelMenu.Button {
     _spawnUsageCommand() {
         const home = GLib.get_home_dir();
         const command = `${home}/.local/bin/codex-usage`;
-        const systemPath = GLib.getenv('PATH') || '/usr/local/bin:/usr/bin:/bin';
+        const path = `${home}/.local/bin:/usr/local/bin:/usr/bin:/bin`;
 
-        const launcher = new Gio.SubprocessLauncher({
-            flags: Gio.SubprocessFlags.STDOUT_PIPE | Gio.SubprocessFlags.STDERR_PIPE,
-        });
-
-        // O GNOME Shell normalmente não herda ~/.local/bin no PATH.
-        // codex-usage chama o binário `codex`, então precisamos garantir esse PATH.
-        launcher.setenv('PATH', `${home}/.local/bin:${systemPath}`, true);
-
-        return launcher.spawnv([command, '--once', '--compact']);
+        // Usamos /usr/bin/env para que o Python receba explicitamente o PATH
+        // correto. O GNOME Shell pode iniciar extensões com um PATH reduzido.
+        return Gio.Subprocess.new(
+            [
+                '/usr/bin/env',
+                `HOME=${home}`,
+                `PATH=${path}`,
+                command,
+                '--once',
+                '--compact',
+            ],
+            Gio.SubprocessFlags.STDOUT_PIPE | Gio.SubprocessFlags.STDERR_PIPE
+        );
     }
 
     async refresh() {
