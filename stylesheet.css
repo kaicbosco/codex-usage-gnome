@@ -32,95 +32,40 @@
 }
 
 /* GNOME */
-.theme-gnome .codex-usage-card {
-  border-radius: 10px;
-  background-color: rgba(255, 255, 255, 0.07);
-  border: 1px solid rgba(255, 255, 255, 0.10);
-}
-.theme-gnome .codex-usage-card:hover {
-  background-color: rgba(255, 255, 255, 0.12);
-  border-color: rgba(255, 255, 255, 0.15);
-}
+.theme-gnome .codex-usage-card { border-radius: 10px; background-color: rgba(255,255,255,0.07); border: 1px solid rgba(255,255,255,0.10); }
+.theme-gnome .codex-usage-card:hover { background-color: rgba(255,255,255,0.12); border-color: rgba(255,255,255,0.15); }
 .theme-gnome .codex-usage-label { font-size: 0.86em; }
 .theme-gnome .codex-usage-percent { font-size: 0.88em; }
 .theme-gnome .codex-usage-reset { font-size: 0.80em; opacity: 0.68; }
-.theme-gnome .codex-progress-track {
-  height: 4px;
-  border-radius: 999px;
-  background-color: rgba(255, 255, 255, 0.12);
-}
+.theme-gnome .codex-progress-track { height: 4px; border-radius: 999px; background-color: rgba(255,255,255,0.12); }
 .theme-gnome .codex-progress-fill { height: 4px; border-radius: 999px; }
-.theme-gnome .codex-progress-fill.ok { background-color: rgba(255, 255, 255, 0.88); }
-.theme-gnome .codex-progress-fill.warn { background-color: rgba(255, 255, 255, 0.66); }
-.theme-gnome .codex-progress-fill.danger { background-color: rgba(255, 255, 255, 0.44); }
-.theme-gnome .codex-progress-fill.unknown { background-color: rgba(255, 255, 255, 0.18); }
+.theme-gnome .codex-progress-fill.ok { background-color: rgba(255,255,255,0.88); }
+.theme-gnome .codex-progress-fill.warn { background-color: rgba(255,255,255,0.66); }
+.theme-gnome .codex-progress-fill.danger { background-color: rgba(255,255,255,0.44); }
+.theme-gnome .codex-progress-fill.unknown { background-color: rgba(255,255,255,0.18); }
 
 /* Glass */
 .theme-glass { spacing: 10px; margin-left: 14px; }
-.theme-glass .codex-usage-card {
-  spacing: 8px;
-  padding: 4px 11px;
-  border-radius: 14px;
-  background-color: rgba(255, 255, 255, 0.10);
-  border: 1px solid rgba(255, 255, 255, 0.18);
-}
-.theme-glass .codex-usage-card:hover {
-  background-color: rgba(255, 255, 255, 0.16);
-  border-color: rgba(255, 255, 255, 0.25);
-}
+.theme-glass .codex-usage-card { spacing: 8px; padding: 4px 11px; border-radius: 14px; background-color: rgba(255,255,255,0.10); border: 1px solid rgba(255,255,255,0.18); }
+.theme-glass .codex-usage-card:hover { background-color: rgba(255,255,255,0.16); border-color: rgba(255,255,255,0.25); }
 .theme-glass .codex-usage-label { font-size: 0.88em; min-width: 30px; }
 .theme-glass .codex-usage-percent { font-size: 0.90em; min-width: 38px; }
 .theme-glass .codex-usage-reset { font-size: 0.80em; opacity: 0.72; min-width: 54px; }
-.theme-glass .codex-progress-track {
-  width: 72px;
-  height: 5px;
-  border-radius: 999px;
-  background-color: rgba(255, 255, 255, 0.10);
-  border: 1px solid rgba(255, 255, 255, 0.08);
-}
+.theme-glass .codex-progress-track { width: 72px; height: 5px; border-radius: 999px; background-color: rgba(255,255,255,0.10); border: 1px solid rgba(255,255,255,0.08); }
 .theme-glass .codex-progress-fill { height: 5px; border-radius: 999px; }
-.theme-glass .codex-progress-fill.ok { background-color: rgba(120, 200, 255, 0.95); }
-.theme-glass .codex-progress-fill.warn { background-color: rgba(255, 205, 100, 0.95); }
-.theme-glass .codex-progress-fill.danger { background-color: rgba(255, 110, 130, 0.95); }
-.theme-glass .codex-progress-fill.unknown { background-color: rgba(255, 255, 255, 0.18); }
+.theme-glass .codex-progress-fill.ok { background-color: rgba(120,200,255,0.95); }
+.theme-glass .codex-progress-fill.warn { background-color: rgba(255,205,100,0.95); }
+.theme-glass .codex-progress-fill.danger { background-color: rgba(255,110,130,0.95); }
+.theme-glass .codex-progress-fill.unknown { background-color: rgba(255,255,255,0.18); }
 
 /* Tokyo Night */
 .theme-tokyo { spacing: 9px; margin-left: 14px; }
-.theme-tokyo .codex-usage-card {
-  spacing: 8px;
-  padding: 4px 10px;
-  border-radius: 9px;
-  background-color: rgba(26, 27, 38, 0.88);
-  border: 1px solid rgba(122, 162, 247, 0.30);
-}
-.theme-tokyo .codex-usage-card:hover {
-  background-color: rgba(36, 40, 59, 0.95);
-  border-color: rgba(122, 162, 247, 0.55);
-}
-.theme-tokyo .codex-usage-label {
-  font-weight: 800;
-  font-size: 0.86em;
-  color: #7aa2f7;
-  min-width: 30px;
-}
-.theme-tokyo .codex-usage-percent {
-  font-weight: 800;
-  font-size: 0.90em;
-  color: #c0caf5;
-  min-width: 38px;
-}
-.theme-tokyo .codex-usage-reset {
-  font-size: 0.79em;
-  color: #9aa5ce;
-  opacity: 0.90;
-  min-width: 54px;
-}
-.theme-tokyo .codex-progress-track {
-  width: 72px;
-  height: 5px;
-  border-radius: 999px;
-  background-color: rgba(65, 72, 104, 0.75);
-}
+.theme-tokyo .codex-usage-card { spacing: 8px; padding: 4px 10px; border-radius: 9px; background-color: rgba(26,27,38,0.88); border: 1px solid rgba(122,162,247,0.30); }
+.theme-tokyo .codex-usage-card:hover { background-color: rgba(36,40,59,0.95); border-color: rgba(122,162,247,0.55); }
+.theme-tokyo .codex-usage-label { font-weight: 800; font-size: 0.86em; color: #7aa2f7; min-width: 30px; }
+.theme-tokyo .codex-usage-percent { font-weight: 800; font-size: 0.90em; color: #c0caf5; min-width: 38px; }
+.theme-tokyo .codex-usage-reset { font-size: 0.79em; color: #9aa5ce; opacity: 0.90; min-width: 54px; }
+.theme-tokyo .codex-progress-track { width: 72px; height: 5px; border-radius: 999px; background-color: rgba(65,72,104,0.75); }
 .theme-tokyo .codex-progress-fill { height: 5px; border-radius: 999px; }
 .theme-tokyo .codex-progress-fill.ok { background-color: #7aa2f7; }
 .theme-tokyo .codex-progress-fill.warn { background-color: #e0af68; }
@@ -129,43 +74,12 @@
 
 /* Industrial Dark */
 .theme-industrial { spacing: 6px; margin-left: 14px; }
-.theme-industrial .codex-usage-card {
-  spacing: 7px;
-  padding: 3px 9px;
-  border-radius: 4px;
-  background-color: rgba(8, 10, 12, 0.92);
-  border: 1px solid rgba(170, 180, 190, 0.22);
-}
-.theme-industrial .codex-usage-card:hover {
-  background-color: rgba(18, 21, 24, 0.98);
-  border-color: rgba(190, 200, 210, 0.36);
-}
-.theme-industrial .codex-usage-label {
-  font-weight: 800;
-  font-size: 0.82em;
-  letter-spacing: 1px;
-  color: #d6d9dc;
-  min-width: 30px;
-}
-.theme-industrial .codex-usage-percent {
-  font-weight: 800;
-  font-size: 0.86em;
-  color: #f0f2f4;
-  min-width: 36px;
-}
-.theme-industrial .codex-usage-reset {
-  font-size: 0.76em;
-  color: #a4abb2;
-  opacity: 0.92;
-  min-width: 54px;
-}
-.theme-industrial .codex-progress-track {
-  width: 72px;
-  height: 6px;
-  border-radius: 1px;
-  background-color: rgba(120, 130, 140, 0.16);
-  border: 1px solid rgba(160, 170, 180, 0.10);
-}
+.theme-industrial .codex-usage-card { spacing: 7px; padding: 3px 9px; border-radius: 4px; background-color: rgba(8,10,12,0.92); border: 1px solid rgba(170,180,190,0.22); }
+.theme-industrial .codex-usage-card:hover { background-color: rgba(18,21,24,0.98); border-color: rgba(190,200,210,0.36); }
+.theme-industrial .codex-usage-label { font-weight: 800; font-size: 0.82em; letter-spacing: 1px; color: #d6d9dc; min-width: 30px; }
+.theme-industrial .codex-usage-percent { font-weight: 800; font-size: 0.86em; color: #f0f2f4; min-width: 36px; }
+.theme-industrial .codex-usage-reset { font-size: 0.76em; color: #a4abb2; opacity: 0.92; min-width: 54px; }
+.theme-industrial .codex-progress-track { width: 72px; height: 6px; border-radius: 1px; background-color: rgba(120,130,140,0.16); border: 1px solid rgba(160,170,180,0.10); }
 .theme-industrial .codex-progress-fill { height: 6px; border-radius: 1px; }
 .theme-industrial .codex-progress-fill.ok { background-color: #8fbf9f; }
 .theme-industrial .codex-progress-fill.warn { background-color: #d4ad67; }
@@ -174,68 +88,41 @@
 
 /* Catppuccin Mocha */
 .theme-catppuccin { spacing: 9px; margin-left: 14px; }
-.theme-catppuccin .codex-usage-card {
-  spacing: 8px;
-  padding: 4px 10px;
-  border-radius: 12px;
-  background-color: rgba(30, 30, 46, 0.94);
-  border: 1px solid rgba(180, 190, 254, 0.24);
-}
-.theme-catppuccin .codex-usage-card:hover {
-  background-color: rgba(49, 50, 68, 0.98);
-  border-color: rgba(180, 190, 254, 0.48);
-}
-.theme-catppuccin .codex-usage-label { color: #cba6f7; font-weight: 800; }
-.theme-catppuccin .codex-usage-percent { color: #cdd6f4; font-weight: 800; }
-.theme-catppuccin .codex-usage-reset { color: #a6adc8; font-size: 0.79em; }
-.theme-catppuccin .codex-progress-track { border-radius: 999px; background-color: #45475a; }
-.theme-catppuccin .codex-progress-fill { border-radius: 999px; }
+.theme-catppuccin .codex-usage-card { spacing: 8px; padding: 4px 10px; border-radius: 12px; background-color: rgba(49,50,68,0.95); border: 1px solid rgba(203,166,247,0.28); }
+.theme-catppuccin .codex-usage-card:hover { background-color: rgba(69,71,90,0.98); border-color: rgba(245,194,231,0.35); }
+.theme-catppuccin .codex-usage-label { color: #cba6f7; font-size: 0.86em; min-width: 30px; }
+.theme-catppuccin .codex-usage-percent { color: #cdd6f4; font-size: 0.90em; min-width: 38px; }
+.theme-catppuccin .codex-usage-reset { color: #bac2de; font-size: 0.79em; opacity: 0.92; min-width: 54px; }
+.theme-catppuccin .codex-progress-track { width: 72px; height: 5px; border-radius: 999px; background-color: rgba(88,91,112,0.85); }
+.theme-catppuccin .codex-progress-fill { height: 5px; border-radius: 999px; }
 .theme-catppuccin .codex-progress-fill.ok { background-color: #a6e3a1; }
 .theme-catppuccin .codex-progress-fill.warn { background-color: #f9e2af; }
 .theme-catppuccin .codex-progress-fill.danger { background-color: #f38ba8; }
-.theme-catppuccin .codex-progress-fill.unknown { background-color: #585b70; }
+.theme-catppuccin .codex-progress-fill.unknown { background-color: #6c7086; }
 
 /* Nord */
-.theme-nord { spacing: 9px; margin-left: 14px; }
-.theme-nord .codex-usage-card {
-  spacing: 8px;
-  padding: 4px 10px;
-  border-radius: 10px;
-  background-color: rgba(46, 52, 64, 0.94);
-  border: 1px solid rgba(136, 192, 208, 0.28);
-}
-.theme-nord .codex-usage-card:hover {
-  background-color: rgba(59, 66, 82, 0.98);
-  border-color: rgba(136, 192, 208, 0.52);
-}
-.theme-nord .codex-usage-label { color: #88c0d0; font-weight: 800; }
-.theme-nord .codex-usage-percent { color: #eceff4; font-weight: 800; }
-.theme-nord .codex-usage-reset { color: #d8dee9; font-size: 0.79em; opacity: 0.82; }
-.theme-nord .codex-progress-track { border-radius: 999px; background-color: #4c566a; }
-.theme-nord .codex-progress-fill { border-radius: 999px; }
-.theme-nord .codex-progress-fill.ok { background-color: #a3be8c; }
+.theme-nord { spacing: 8px; margin-left: 13px; }
+.theme-nord .codex-usage-card { spacing: 8px; padding: 4px 10px; border-radius: 10px; background-color: rgba(46,52,64,0.95); border: 1px solid rgba(129,161,193,0.35); }
+.theme-nord .codex-usage-card:hover { background-color: rgba(59,66,82,0.98); border-color: rgba(136,192,208,0.42); }
+.theme-nord .codex-usage-label { color: #88c0d0; font-size: 0.85em; min-width: 30px; }
+.theme-nord .codex-usage-percent { color: #eceff4; font-size: 0.89em; min-width: 37px; }
+.theme-nord .codex-usage-reset { color: #d8dee9; font-size: 0.79em; opacity: 0.86; min-width: 54px; }
+.theme-nord .codex-progress-track { width: 72px; height: 5px; border-radius: 999px; background-color: rgba(76,86,106,0.90); }
+.theme-nord .codex-progress-fill { height: 5px; border-radius: 999px; }
+.theme-nord .codex-progress-fill.ok { background-color: #88c0d0; }
 .theme-nord .codex-progress-fill.warn { background-color: #ebcb8b; }
 .theme-nord .codex-progress-fill.danger { background-color: #bf616a; }
-.theme-nord .codex-progress-fill.unknown { background-color: #616e88; }
+.theme-nord .codex-progress-fill.unknown { background-color: #4c566a; }
 
 /* Dracula */
 .theme-dracula { spacing: 9px; margin-left: 14px; }
-.theme-dracula .codex-usage-card {
-  spacing: 8px;
-  padding: 4px 10px;
-  border-radius: 11px;
-  background-color: rgba(40, 42, 54, 0.96);
-  border: 1px solid rgba(189, 147, 249, 0.30);
-}
-.theme-dracula .codex-usage-card:hover {
-  background-color: rgba(68, 71, 90, 0.98);
-  border-color: rgba(189, 147, 249, 0.55);
-}
-.theme-dracula .codex-usage-label { color: #bd93f9; font-weight: 800; }
-.theme-dracula .codex-usage-percent { color: #f8f8f2; font-weight: 800; }
-.theme-dracula .codex-usage-reset { color: #8be9fd; font-size: 0.79em; }
-.theme-dracula .codex-progress-track { border-radius: 999px; background-color: #44475a; }
-.theme-dracula .codex-progress-fill { border-radius: 999px; }
+.theme-dracula .codex-usage-card { spacing: 8px; padding: 4px 10px; border-radius: 11px; background-color: rgba(40,42,54,0.96); border: 1px solid rgba(189,147,249,0.30); }
+.theme-dracula .codex-usage-card:hover { background-color: rgba(54,58,79,0.98); border-color: rgba(255,121,198,0.40); }
+.theme-dracula .codex-usage-label { color: #bd93f9; font-size: 0.86em; min-width: 30px; }
+.theme-dracula .codex-usage-percent { color: #f8f8f2; font-size: 0.90em; min-width: 38px; }
+.theme-dracula .codex-usage-reset { color: #f8f8f2; font-size: 0.79em; opacity: 0.74; min-width: 54px; }
+.theme-dracula .codex-progress-track { width: 72px; height: 5px; border-radius: 999px; background-color: rgba(68,71,90,0.95); }
+.theme-dracula .codex-progress-fill { height: 5px; border-radius: 999px; }
 .theme-dracula .codex-progress-fill.ok { background-color: #50fa7b; }
 .theme-dracula .codex-progress-fill.warn { background-color: #f1fa8c; }
 .theme-dracula .codex-progress-fill.danger { background-color: #ff5555; }
@@ -243,69 +130,126 @@
 
 /* AMOLED */
 .theme-amoled { spacing: 8px; margin-left: 14px; }
-.theme-amoled .codex-usage-card {
-  spacing: 8px;
-  padding: 4px 10px;
-  border-radius: 9px;
-  background-color: rgba(0, 0, 0, 0.98);
-  border: 1px solid rgba(255, 255, 255, 0.14);
-}
-.theme-amoled .codex-usage-card:hover {
-  background-color: rgba(10, 10, 10, 1.0);
-  border-color: rgba(255, 255, 255, 0.24);
-}
-.theme-amoled .codex-usage-label { color: #ffffff; font-weight: 800; }
-.theme-amoled .codex-usage-percent { color: #ffffff; font-weight: 800; }
-.theme-amoled .codex-usage-reset { color: #bdbdbd; font-size: 0.78em; }
-.theme-amoled .codex-progress-track { border-radius: 999px; background-color: #1a1a1a; }
-.theme-amoled .codex-progress-fill { border-radius: 999px; }
+.theme-amoled .codex-usage-card { spacing: 8px; padding: 4px 10px; border-radius: 14px; background-color: rgba(0,0,0,0.98); border: 1px solid rgba(255,255,255,0.08); }
+.theme-amoled .codex-usage-card:hover { background-color: rgba(10,10,10,1); border-color: rgba(255,255,255,0.16); }
+.theme-amoled .codex-usage-label { color: #ffffff; font-size: 0.84em; min-width: 30px; }
+.theme-amoled .codex-usage-percent { color: #ffffff; font-size: 0.88em; min-width: 38px; }
+.theme-amoled .codex-usage-reset { color: rgba(255,255,255,0.74); font-size: 0.78em; min-width: 54px; }
+.theme-amoled .codex-progress-track { width: 72px; height: 4px; border-radius: 999px; background-color: rgba(255,255,255,0.10); }
+.theme-amoled .codex-progress-fill { height: 4px; border-radius: 999px; }
 .theme-amoled .codex-progress-fill.ok { background-color: #ffffff; }
-.theme-amoled .codex-progress-fill.warn { background-color: #bdbdbd; }
-.theme-amoled .codex-progress-fill.danger { background-color: #707070; }
-.theme-amoled .codex-progress-fill.unknown { background-color: #2b2b2b; }
+.theme-amoled .codex-progress-fill.warn { background-color: #cfcfcf; }
+.theme-amoled .codex-progress-fill.danger { background-color: #8f8f8f; }
+.theme-amoled .codex-progress-fill.unknown { background-color: #444444; }
 
 /* Cyber Neon */
-.theme-neon { spacing: 10px; margin-left: 14px; }
-.theme-neon .codex-usage-card {
-  spacing: 8px;
-  padding: 4px 10px;
-  border-radius: 8px;
-  background-color: rgba(8, 8, 20, 0.96);
-  border: 1px solid rgba(0, 255, 255, 0.34);
-}
-.theme-neon .codex-usage-card:hover {
-  background-color: rgba(12, 12, 30, 0.99);
-  border-color: rgba(255, 0, 200, 0.58);
-}
-.theme-neon .codex-usage-label { color: #00f5ff; font-weight: 900; letter-spacing: 1px; }
-.theme-neon .codex-usage-percent { color: #ff4fd8; font-weight: 900; }
-.theme-neon .codex-usage-reset { color: #8cf7ff; font-size: 0.78em; }
-.theme-neon .codex-progress-track { border-radius: 2px; background-color: #17172b; border: 1px solid rgba(0, 245, 255, 0.18); }
-.theme-neon .codex-progress-fill { border-radius: 2px; }
-.theme-neon .codex-progress-fill.ok { background-color: #00f5ff; }
-.theme-neon .codex-progress-fill.warn { background-color: #ffe66d; }
-.theme-neon .codex-progress-fill.danger { background-color: #ff4fd8; }
-.theme-neon .codex-progress-fill.unknown { background-color: #30304a; }
+.theme-cyberneon { spacing: 10px; margin-left: 15px; }
+.theme-cyberneon .codex-usage-card { spacing: 8px; padding: 4px 11px; border-radius: 12px; background-color: rgba(13,17,30,0.95); border: 1px solid rgba(0,255,255,0.36); }
+.theme-cyberneon .codex-usage-card:hover { background-color: rgba(20,26,44,0.98); border-color: rgba(255,0,200,0.42); }
+.theme-cyberneon .codex-usage-label { color: #00f7ff; font-size: 0.86em; min-width: 30px; }
+.theme-cyberneon .codex-usage-percent { color: #fdfd96; font-size: 0.91em; min-width: 38px; }
+.theme-cyberneon .codex-usage-reset { color: #ff6ad5; font-size: 0.79em; opacity: 0.96; min-width: 54px; }
+.theme-cyberneon .codex-progress-track { width: 72px; height: 5px; border-radius: 999px; background-color: rgba(0,255,255,0.12); }
+.theme-cyberneon .codex-progress-fill { height: 5px; border-radius: 999px; }
+.theme-cyberneon .codex-progress-fill.ok { background-color: #00f7ff; }
+.theme-cyberneon .codex-progress-fill.warn { background-color: #ffe66d; }
+.theme-cyberneon .codex-progress-fill.danger { background-color: #ff4fd8; }
+.theme-cyberneon .codex-progress-fill.unknown { background-color: #375a7f; }
 
 /* Gruvbox Dark */
-.theme-gruvbox { spacing: 8px; margin-left: 14px; }
-.theme-gruvbox .codex-usage-card {
-  spacing: 8px;
-  padding: 4px 10px;
-  border-radius: 7px;
-  background-color: rgba(40, 40, 40, 0.96);
-  border: 1px solid rgba(214, 153, 33, 0.28);
-}
-.theme-gruvbox .codex-usage-card:hover {
-  background-color: rgba(60, 56, 54, 0.98);
-  border-color: rgba(214, 153, 33, 0.52);
-}
-.theme-gruvbox .codex-usage-label { color: #fabd2f; font-weight: 800; }
-.theme-gruvbox .codex-usage-percent { color: #ebdbb2; font-weight: 800; }
-.theme-gruvbox .codex-usage-reset { color: #bdae93; font-size: 0.79em; }
-.theme-gruvbox .codex-progress-track { border-radius: 3px; background-color: #504945; }
-.theme-gruvbox .codex-progress-fill { border-radius: 3px; }
+.theme-gruvbox { spacing: 8px; margin-left: 13px; }
+.theme-gruvbox .codex-usage-card { spacing: 8px; padding: 4px 10px; border-radius: 8px; background-color: rgba(40,40,40,0.96); border: 1px solid rgba(146,131,116,0.34); }
+.theme-gruvbox .codex-usage-card:hover { background-color: rgba(50,48,47,0.98); border-color: rgba(214,153,33,0.40); }
+.theme-gruvbox .codex-usage-label { color: #d79921; font-size: 0.85em; min-width: 30px; }
+.theme-gruvbox .codex-usage-percent { color: #ebdbb2; font-size: 0.89em; min-width: 37px; }
+.theme-gruvbox .codex-usage-reset { color: #d5c4a1; font-size: 0.79em; opacity: 0.86; min-width: 54px; }
+.theme-gruvbox .codex-progress-track { width: 72px; height: 5px; border-radius: 999px; background-color: rgba(80,73,69,0.95); }
+.theme-gruvbox .codex-progress-fill { height: 5px; border-radius: 999px; }
 .theme-gruvbox .codex-progress-fill.ok { background-color: #b8bb26; }
 .theme-gruvbox .codex-progress-fill.warn { background-color: #fabd2f; }
 .theme-gruvbox .codex-progress-fill.danger { background-color: #fb4934; }
 .theme-gruvbox .codex-progress-fill.unknown { background-color: #665c54; }
+
+/* Nothing OS */
+.theme-nothing { spacing: 12px; margin-left: 16px; }
+.theme-nothing .codex-usage-card { spacing: 8px; padding: 4px 12px; border-radius: 18px; background-color: rgba(245,245,245,0.94); border: 1px solid rgba(20,20,20,0.12); }
+.theme-nothing .codex-usage-card:hover { background-color: rgba(255,255,255,0.98); border-color: rgba(20,20,20,0.20); }
+.theme-nothing .codex-usage-label { font-weight: 800; font-size: 0.84em; letter-spacing: 1px; color: #111111; min-width: 30px; }
+.theme-nothing .codex-usage-percent { font-weight: 800; font-size: 0.89em; color: #111111; min-width: 38px; }
+.theme-nothing .codex-usage-reset { font-size: 0.78em; color: rgba(17,17,17,0.75); min-width: 54px; }
+.theme-nothing .codex-progress-track { width: 76px; height: 6px; border-radius: 999px; background-color: rgba(17,17,17,0.10); }
+.theme-nothing .codex-progress-fill { height: 6px; border-radius: 999px; }
+.theme-nothing .codex-progress-fill.ok { background-color: #111111; }
+.theme-nothing .codex-progress-fill.warn { background-color: #4a4a4a; }
+.theme-nothing .codex-progress-fill.danger { background-color: #7a7a7a; }
+.theme-nothing .codex-progress-fill.unknown { background-color: #c9c9c9; }
+
+/* macOS Glass */
+.theme-macos { spacing: 10px; margin-left: 16px; }
+.theme-macos .codex-usage-card { spacing: 8px; padding: 5px 12px; border-radius: 16px; background-color: rgba(255,255,255,0.16); border: 1px solid rgba(255,255,255,0.22); }
+.theme-macos .codex-usage-card:hover { background-color: rgba(255,255,255,0.22); border-color: rgba(255,255,255,0.30); }
+.theme-macos .codex-usage-label { color: #ffffff; font-size: 0.85em; min-width: 30px; }
+.theme-macos .codex-usage-percent { color: #ffffff; font-size: 0.89em; min-width: 38px; }
+.theme-macos .codex-usage-reset { color: rgba(255,255,255,0.82); font-size: 0.78em; min-width: 54px; }
+.theme-macos .codex-progress-track { width: 76px; height: 6px; border-radius: 999px; background-color: rgba(255,255,255,0.15); border: 1px solid rgba(255,255,255,0.10); }
+.theme-macos .codex-progress-fill { height: 6px; border-radius: 999px; }
+.theme-macos .codex-progress-fill.ok { background-color: #64d2ff; }
+.theme-macos .codex-progress-fill.warn { background-color: #ffd60a; }
+.theme-macos .codex-progress-fill.danger { background-color: #ff453a; }
+.theme-macos .codex-progress-fill.unknown { background-color: rgba(255,255,255,0.25); }
+
+/* Material You */
+.theme-material { spacing: 10px; margin-left: 15px; }
+.theme-material .codex-usage-card { spacing: 8px; padding: 5px 12px; border-radius: 20px; background-color: rgba(73,69,79,0.96); border: 1px solid rgba(202,196,208,0.18); }
+.theme-material .codex-usage-card:hover { background-color: rgba(87,82,94,0.98); border-color: rgba(208,188,255,0.30); }
+.theme-material .codex-usage-label { color: #d0bcff; font-size: 0.85em; min-width: 30px; }
+.theme-material .codex-usage-percent { color: #f0eef4; font-size: 0.90em; min-width: 38px; }
+.theme-material .codex-usage-reset { color: #cac4d0; font-size: 0.79em; min-width: 54px; }
+.theme-material .codex-progress-track { width: 76px; height: 6px; border-radius: 999px; background-color: rgba(121,116,126,0.75); }
+.theme-material .codex-progress-fill { height: 6px; border-radius: 999px; }
+.theme-material .codex-progress-fill.ok { background-color: #d0bcff; }
+.theme-material .codex-progress-fill.warn { background-color: #ccc2dc; }
+.theme-material .codex-progress-fill.danger { background-color: #efb8c8; }
+.theme-material .codex-progress-fill.unknown { background-color: #79747e; }
+
+/* Steam */
+.theme-steam { spacing: 10px; margin-left: 15px; }
+.theme-steam .codex-usage-card { spacing: 8px; padding: 4px 11px; border-radius: 10px; background-color: rgba(27,40,56,0.97); border: 1px solid rgba(102,192,244,0.26); }
+.theme-steam .codex-usage-card:hover { background-color: rgba(38,57,77,0.99); border-color: rgba(102,192,244,0.40); }
+.theme-steam .codex-usage-label { color: #66c0f4; font-size: 0.85em; min-width: 30px; }
+.theme-steam .codex-usage-percent { color: #ffffff; font-size: 0.89em; min-width: 38px; }
+.theme-steam .codex-usage-reset { color: #acb2b8; font-size: 0.78em; min-width: 54px; }
+.theme-steam .codex-progress-track { width: 76px; height: 6px; border-radius: 999px; background-color: rgba(103,193,245,0.16); }
+.theme-steam .codex-progress-fill { height: 6px; border-radius: 999px; }
+.theme-steam .codex-progress-fill.ok { background-color: #66c0f4; }
+.theme-steam .codex-progress-fill.warn { background-color: #a4d007; }
+.theme-steam .codex-progress-fill.danger { background-color: #ff6b6b; }
+.theme-steam .codex-progress-fill.unknown { background-color: #3b5875; }
+
+/* Cyberpunk 2077 */
+.theme-cyberpunk { spacing: 12px; margin-left: 16px; }
+.theme-cyberpunk .codex-usage-card { spacing: 8px; padding: 5px 12px; border-radius: 6px; background-color: rgba(12,12,18,0.98); border: 1px solid rgba(255,237,0,0.46); }
+.theme-cyberpunk .codex-usage-card:hover { background-color: rgba(20,20,28,1); border-color: rgba(0,229,255,0.55); }
+.theme-cyberpunk .codex-usage-label { font-weight: 800; font-size: 0.85em; letter-spacing: 1px; color: #ffed00; min-width: 30px; }
+.theme-cyberpunk .codex-usage-percent { font-weight: 800; font-size: 0.90em; color: #00e5ff; min-width: 38px; }
+.theme-cyberpunk .codex-usage-reset { font-size: 0.79em; color: #ff4fd8; opacity: 0.96; min-width: 54px; }
+.theme-cyberpunk .codex-progress-track { width: 78px; height: 6px; border-radius: 1px; background-color: rgba(255,237,0,0.16); }
+.theme-cyberpunk .codex-progress-fill { height: 6px; border-radius: 1px; }
+.theme-cyberpunk .codex-progress-fill.ok { background-color: #ffed00; }
+.theme-cyberpunk .codex-progress-fill.warn { background-color: #00e5ff; }
+.theme-cyberpunk .codex-progress-fill.danger { background-color: #ff4fd8; }
+.theme-cyberpunk .codex-progress-fill.unknown { background-color: #6c5b00; }
+
+/* Retro CRT */
+.theme-retrocrt { spacing: 10px; margin-left: 15px; }
+.theme-retrocrt .codex-usage-card { spacing: 8px; padding: 4px 10px; border-radius: 4px; background-color: rgba(0,15,0,0.96); border: 1px solid rgba(90,255,90,0.28); }
+.theme-retrocrt .codex-usage-card:hover { background-color: rgba(0,24,0,0.99); border-color: rgba(140,255,140,0.40); }
+.theme-retrocrt .codex-usage-label { font-weight: 800; font-size: 0.84em; letter-spacing: 1px; color: #7cff7c; min-width: 30px; }
+.theme-retrocrt .codex-usage-percent { font-weight: 800; font-size: 0.89em; color: #b8ffb8; min-width: 38px; }
+.theme-retrocrt .codex-usage-reset { font-size: 0.78em; color: #7cff7c; opacity: 0.82; min-width: 54px; }
+.theme-retrocrt .codex-progress-track { width: 76px; height: 6px; border-radius: 2px; background-color: rgba(60,160,60,0.20); }
+.theme-retrocrt .codex-progress-fill { height: 6px; border-radius: 2px; }
+.theme-retrocrt .codex-progress-fill.ok { background-color: #7cff7c; }
+.theme-retrocrt .codex-progress-fill.warn { background-color: #d8ff7c; }
+.theme-retrocrt .codex-progress-fill.danger { background-color: #5aff5a; }
+.theme-retrocrt .codex-progress-fill.unknown { background-color: #2f7a2f; }
