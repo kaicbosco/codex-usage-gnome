@@ -1,0 +1,7 @@
+{
+  "uuid": "codex-usage-cards@local",
+  "name": "Codex Usage Cards",
+  "description": "GNOME Shell panel cards for Codex 5-hour and weekly usage limits.",
+  "version": 2,
+  "shell-version": ["45", "46", "47", "48", "49"]
+}
