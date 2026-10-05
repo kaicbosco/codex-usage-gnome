@@ -24,18 +24,27 @@ function stripAnsi(text) {
 function extractUsage(text) {
     const clean = stripAnsi(text);
 
-    const fivePct = clean.match(/\b5H\b.*?(\d{1,3})%/i);
-    const weekPct = clean.match(/\b(?:W|WEEK)\b.*?(\d{1,3})%/i);
+    const fiveBlock = clean.match(/\[\s*5H\b([^\]]*)\]/i)?.[1] ?? '';
+    const weekBlock = clean.match(/\[\s*(?:W|WEEK)\b([^\]]*)\]/i)?.[1] ?? '';
 
-    const fiveTime = clean.match(/\b5H\b.*?(\d+d\d*h|\d+h\d*m|\d+h|\d+m)\b/i);
-    const weekTime = clean.match(/\b(?:W|WEEK)\b.*?(\d+d\d*h|\d+h\d*m|\d+h|\d+m)\b/i);
+    const parseBlock = block => {
+        const percent = block.match(/(\d{1,3})%/);
+        const reset = block.match(/(\d+d\d+h|\d+d|\d+h\d+m|\d+h|\d+m)/i);
+        return {
+            percent: percent ? Number(percent[1]) : null,
+            reset: reset ? reset[1] : '—',
+        };
+    };
+
+    const five = parseBlock(fiveBlock);
+    const week = parseBlock(weekBlock);
 
     return {
         clean,
-        fivePercent: fivePct ? Number(fivePct[1]) : null,
-        weekPercent: weekPct ? Number(weekPct[1]) : null,
-        fiveReset: fiveTime ? fiveTime[1] : '—',
-        weekReset: weekTime ? weekTime[1] : '—',
+        fivePercent: five.percent,
+        weekPercent: week.percent,
+        fiveReset: five.reset,
+        weekReset: week.reset,
     };
 }
 
@@ -140,11 +149,14 @@ class CodexUsageIndicator extends PanelMenu.Button {
         this._statusItem = new PopupMenu.PopupMenuItem('Status: carregando…', {reactive: false});
         this._fiveItem = new PopupMenu.PopupMenuItem('5 horas: —', {reactive: false});
         this._weekItem = new PopupMenu.PopupMenuItem('Semanal: —', {reactive: false});
+        this._errorItem = new PopupMenu.PopupMenuItem('', {reactive: false});
+        this._errorItem.actor.hide();
 
         this.menu.addMenuItem(this._statusItem);
         this.menu.addMenuItem(new PopupMenu.PopupSeparatorMenuItem());
         this.menu.addMenuItem(this._fiveItem);
         this.menu.addMenuItem(this._weekItem);
+        this.menu.addMenuItem(this._errorItem);
         this.menu.addMenuItem(new PopupMenu.PopupSeparatorMenuItem());
 
         const themeHeader = new PopupMenu.PopupMenuItem('Tema', {reactive: false});
@@ -181,19 +193,32 @@ class CodexUsageIndicator extends PanelMenu.Button {
         }
     }
 
+    _spawnUsageCommand() {
+        const home = GLib.get_home_dir();
+        const command = `${home}/.local/bin/codex-usage`;
+        const systemPath = GLib.getenv('PATH') || '/usr/local/bin:/usr/bin:/bin';
+
+        const launcher = new Gio.SubprocessLauncher({
+            flags: Gio.SubprocessFlags.STDOUT_PIPE | Gio.SubprocessFlags.STDERR_PIPE,
+        });
+
+        // O GNOME Shell normalmente não herda ~/.local/bin no PATH.
+        // codex-usage chama o binário `codex`, então precisamos garantir esse PATH.
+        launcher.setenv('PATH', `${home}/.local/bin:${systemPath}`, true);
+
+        return launcher.spawnv([command, '--once', '--compact']);
+    }
+
     async refresh() {
         if (this._refreshing)
             return;
 
         this._refreshing = true;
         this._statusItem.label.set_text('Status: atualizando…');
+        this._errorItem.actor.hide();
 
         try {
-            const command = `${GLib.get_home_dir()}/.local/bin/codex-usage`;
-            const proc = Gio.Subprocess.new(
-                [command, '--once', '--compact'],
-                Gio.SubprocessFlags.STDOUT_PIPE | Gio.SubprocessFlags.STDERR_PIPE
-            );
+            const proc = this._spawnUsageCommand();
 
             const [ok, stdout, stderr] = await new Promise((resolve, reject) => {
                 proc.communicate_utf8_async(null, null, (p, result) => {
@@ -213,25 +238,28 @@ class CodexUsageIndicator extends PanelMenu.Button {
                 throw new Error(err);
 
             const parsed = extractUsage(stdout ?? '');
-            if (parsed.fivePercent === null && parsed.weekPercent === null)
+            if (parsed.fivePercent === null || parsed.weekPercent === null)
                 throw new Error(`Saída não reconhecida: ${parsed.clean || '(vazia)'}`);
 
             this._five.setUsage(parsed.fivePercent, parsed.fiveReset);
             this._week.setUsage(parsed.weekPercent, parsed.weekReset);
 
             this._fiveItem.label.set_text(
-                `5 horas: ${parsed.fivePercent ?? '—'}% livre • reset em ${parsed.fiveReset}`
+                `5 horas: ${parsed.fivePercent}% livre • reset em ${parsed.fiveReset}`
             );
             this._weekItem.label.set_text(
-                `Semanal: ${parsed.weekPercent ?? '—'}% livre • reset em ${parsed.weekReset}`
+                `Semanal: ${parsed.weekPercent}% livre • reset em ${parsed.weekReset}`
             );
             this._statusItem.label.set_text('Status: conectado');
         } catch (e) {
+            const message = String(e.message ?? e);
             this._five.setUsage(null, '—');
             this._week.setUsage(null, '—');
             this._statusItem.label.set_text('Status: erro');
             this._fiveItem.label.set_text('5 horas: indisponível');
-            this._weekItem.label.set_text(String(e.message ?? e));
+            this._weekItem.label.set_text('Semanal: indisponível');
+            this._errorItem.label.set_text(`Erro: ${message}`);
+            this._errorItem.actor.show();
             logError(e, 'Codex Usage Cards');
         } finally {
             this._refreshing = false;
