@@ -10,6 +10,7 @@ import * as PanelMenu from 'resource:///org/gnome/shell/ui/panelMenu.js';
 import * as PopupMenu from 'resource:///org/gnome/shell/ui/popupMenu.js';
 
 const REFRESH_SECONDS = 15;
+
 const THEMES = [
     ['gnome', 'GNOME'],
     ['glass', 'Glass'],
@@ -27,6 +28,17 @@ const THEMES = [
     ['steam', 'Steam'],
     ['cyberpunk', 'Cyberpunk 2077'],
     ['retrocrt', 'Retro CRT'],
+];
+
+const LAYOUTS = [
+    ['cards', 'Cards'],
+    ['text-progress', 'Text + Progress'],
+];
+
+const BAR_STYLES = [
+    ['solid', 'Solid'],
+    ['thin', 'Thin'],
+    ['segmented', 'Segmented'],
 ];
 
 function stateClass(percent) {
@@ -48,6 +60,9 @@ class UsageCard extends St.BoxLayout {
             y_align: Clutter.ActorAlign.CENTER,
         });
 
+        this._barStyle = 'solid';
+        this._lastPercent = null;
+
         this._label = new St.Label({
             text: label,
             style_class: 'codex-usage-label',
@@ -66,6 +81,21 @@ class UsageCard extends St.BoxLayout {
         });
         this._track.add_child(this._fill);
 
+        this._segments = new St.BoxLayout({
+            style_class: 'codex-segment-track',
+            vertical: false,
+            y_align: Clutter.ActorAlign.CENTER,
+        });
+        this._segmentActors = [];
+        for (let i = 0; i < 10; i++) {
+            const segment = new St.Widget({
+                style_class: 'codex-segment empty',
+                y_align: Clutter.ActorAlign.CENTER,
+            });
+            this._segmentActors.push(segment);
+            this._segments.add_child(segment);
+        }
+
         this._percent = new St.Label({
             text: '—%',
             style_class: 'codex-usage-percent',
@@ -80,18 +110,46 @@ class UsageCard extends St.BoxLayout {
 
         this.add_child(this._label);
         this.add_child(this._track);
+        this.add_child(this._segments);
         this.add_child(this._percent);
         this.add_child(this._reset);
 
+        this.setBarStyle('solid');
         this.setUsage(null, '—');
     }
 
+    setBarStyle(style) {
+        this._barStyle = style;
+        const segmented = style === 'segmented';
+        this._track.visible = !segmented;
+        this._segments.visible = segmented;
+        this.set_style_class_name(`codex-usage-card bar-${style}`);
+        this._updateSegments(this._lastPercent);
+    }
+
+    _updateSegments(percent) {
+        const state = stateClass(percent);
+        const filledCount = percent === null
+            ? 0
+            : Math.max(0, Math.min(10, Math.round(percent / 10)));
+
+        for (let i = 0; i < this._segmentActors.length; i++) {
+            const filled = i < filledCount;
+            this._segmentActors[i].set_style_class_name(
+                `codex-segment ${filled ? `filled ${state}` : 'empty'}`
+            );
+        }
+    }
+
     setUsage(percent, resetText) {
+        this._lastPercent = percent;
+
         if (percent === null || Number.isNaN(percent)) {
             this._percent.set_text('—%');
             this._reset.set_text('↻ —');
             this._fill.set_width(0);
             this._fill.set_style_class_name('codex-progress-fill unknown');
+            this._updateSegments(null);
             return;
         }
 
@@ -99,9 +157,10 @@ class UsageCard extends St.BoxLayout {
         this._percent.set_text(`${Math.round(bounded)}%`);
         this._reset.set_text(`↻ ${resetText}`);
 
-        const width = Math.max(2, Math.round(72 * bounded / 100));
+        const width = Math.max(2, Math.round(76 * bounded / 100));
         this._fill.set_width(width);
         this._fill.set_style_class_name(`codex-progress-fill ${stateClass(bounded)}`);
+        this._updateSegments(bounded);
     }
 });
 
@@ -112,18 +171,31 @@ class CodexUsageIndicator extends PanelMenu.Button {
 
         this._extension = extension;
         this._refreshing = false;
-        this._theme = this._extension.loadTheme();
+
+        this._theme = this._extension.loadPreference('theme', THEMES, 'gnome');
+        this._layout = this._extension.loadPreference('layout', LAYOUTS, 'cards');
+        this._barStyle = this._extension.loadPreference('bar-style', BAR_STYLES, 'solid');
+
         this._themeItems = new Map();
+        this._layoutItems = new Map();
+        this._barStyleItems = new Map();
 
         this._row = new St.BoxLayout({
-            style_class: `codex-usage-row theme-${this._theme}`,
             vertical: false,
             y_align: Clutter.ActorAlign.CENTER,
         });
 
         this._five = new UsageCard('5H');
         this._week = new UsageCard('WEEK');
+
+        this._separator = new St.Label({
+            text: '│',
+            style_class: 'codex-inline-separator',
+            y_align: Clutter.ActorAlign.CENTER,
+        });
+
         this._row.add_child(this._five);
+        this._row.add_child(this._separator);
         this._row.add_child(this._week);
         this.add_child(this._row);
 
@@ -140,38 +212,83 @@ class CodexUsageIndicator extends PanelMenu.Button {
         this.menu.addMenuItem(this._errorItem);
         this.menu.addMenuItem(new PopupMenu.PopupSeparatorMenuItem());
 
-        const themeHeader = new PopupMenu.PopupMenuItem('Tema', {reactive: false});
-        this.menu.addMenuItem(themeHeader);
-
-        for (const [id, name] of THEMES) {
-            const item = new PopupMenu.PopupMenuItem('');
-            item.connect('activate', () => this.setTheme(id));
-            this._themeItems.set(id, {item, name});
-            this.menu.addMenuItem(item);
-        }
-        this._updateThemeMenu();
+        this._addChoiceSection('Tema', THEMES, this._themeItems, id => this.setTheme(id));
+        this.menu.addMenuItem(new PopupMenu.PopupSeparatorMenuItem());
+        this._addChoiceSection('Layout', LAYOUTS, this._layoutItems, id => this.setLayout(id));
+        this.menu.addMenuItem(new PopupMenu.PopupSeparatorMenuItem());
+        this._addChoiceSection('Bar style', BAR_STYLES, this._barStyleItems, id => this.setBarStyle(id));
 
         this.menu.addMenuItem(new PopupMenu.PopupSeparatorMenuItem());
         const refreshItem = new PopupMenu.PopupMenuItem('Atualizar agora');
         refreshItem.connect('activate', () => this.refresh());
         this.menu.addMenuItem(refreshItem);
+
+        this._applyAppearance();
+        this._updateChoiceMenus();
+    }
+
+    _addChoiceSection(title, choices, targetMap, handler) {
+        const header = new PopupMenu.PopupMenuItem(title, {reactive: false});
+        this.menu.addMenuItem(header);
+
+        for (const [id, name] of choices) {
+            const item = new PopupMenu.PopupMenuItem('');
+            item.connect('activate', () => handler(id));
+            targetMap.set(id, {item, name});
+            this.menu.addMenuItem(item);
+        }
+    }
+
+    _updateChoiceMap(map, selected) {
+        for (const [id, data] of map) {
+            const mark = id === selected ? '●' : '○';
+            data.item.label.set_text(`${mark} ${data.name}`);
+        }
+    }
+
+    _updateChoiceMenus() {
+        this._updateChoiceMap(this._themeItems, this._theme);
+        this._updateChoiceMap(this._layoutItems, this._layout);
+        this._updateChoiceMap(this._barStyleItems, this._barStyle);
+    }
+
+    _applyAppearance() {
+        this._row.set_style_class_name(
+            `codex-usage-row theme-${this._theme} layout-${this._layout} barstyle-${this._barStyle}`
+        );
+
+        const textLayout = this._layout === 'text-progress';
+        this._separator.visible = textLayout;
+
+        this._five.setBarStyle(this._barStyle);
+        this._week.setBarStyle(this._barStyle);
     }
 
     setTheme(theme) {
         if (!THEMES.some(([id]) => id === theme))
             return;
-
         this._theme = theme;
-        this._row.set_style_class_name(`codex-usage-row theme-${theme}`);
-        this._extension.saveTheme(theme);
-        this._updateThemeMenu();
+        this._extension.savePreference('theme', theme);
+        this._applyAppearance();
+        this._updateChoiceMenus();
     }
 
-    _updateThemeMenu() {
-        for (const [id, data] of this._themeItems) {
-            const mark = id === this._theme ? '●' : '○';
-            data.item.label.set_text(`${mark} ${data.name}`);
-        }
+    setLayout(layout) {
+        if (!LAYOUTS.some(([id]) => id === layout))
+            return;
+        this._layout = layout;
+        this._extension.savePreference('layout', layout);
+        this._applyAppearance();
+        this._updateChoiceMenus();
+    }
+
+    setBarStyle(style) {
+        if (!BAR_STYLES.some(([id]) => id === style))
+            return;
+        this._barStyle = style;
+        this._extension.savePreference('bar-style', style);
+        this._applyAppearance();
+        this._updateChoiceMenus();
     }
 
     _spawnUsageCommand() {
@@ -281,31 +398,35 @@ export default class CodexUsageCardsExtension extends Extension {
         this._indicator = null;
     }
 
-    get themeFile() {
+    _preferenceFile(name) {
         return Gio.File.new_for_path(
-            GLib.build_filenamev([GLib.get_user_config_dir(), 'codex-usage-cards', 'theme'])
+            GLib.build_filenamev([GLib.get_user_config_dir(), 'codex-usage-cards', name])
         );
     }
 
-    loadTheme() {
+    loadPreference(name, choices, fallback) {
         try {
-            const [ok, bytes] = this.themeFile.load_contents(null);
+            const [ok, bytes] = this._preferenceFile(name).load_contents(null);
             if (ok) {
                 const value = new TextDecoder().decode(bytes).trim();
-                if (THEMES.some(([id]) => id === value))
+                if (choices.some(([id]) => id === value))
                     return value;
             }
         } catch (_) {
-            // Primeiro uso: ainda não existe configuração salva.
+            // Primeiro uso.
         }
-        return 'gnome';
+        return fallback;
     }
 
-    saveTheme(theme) {
-        const dir = GLib.build_filenamev([GLib.get_user_config_dir(), 'codex-usage-cards']);
+    savePreference(name, value) {
+        const dir = GLib.build_filenamev([
+            GLib.get_user_config_dir(),
+            'codex-usage-cards',
+        ]);
         GLib.mkdir_with_parents(dir, 0o755);
-        this.themeFile.replace_contents(
-            new TextEncoder().encode(`${theme}\n`),
+
+        this._preferenceFile(name).replace_contents(
+            new TextEncoder().encode(`${value}\n`),
             null,
             false,
             Gio.FileCreateFlags.REPLACE_DESTINATION,
