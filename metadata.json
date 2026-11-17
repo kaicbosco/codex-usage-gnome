@@ -2,7 +2,7 @@
   "uuid": "codex-usage-cards@local",
   "name": "Codex Usage Cards",
   "description": "GNOME Shell usage monitor for Codex with themes, layouts and progress styles.",
-  "version": 4,
+  "version": 5,
   "shell-version": [
     "45",
     "46",
