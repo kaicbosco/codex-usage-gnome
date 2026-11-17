@@ -253,3 +253,192 @@
 .theme-retrocrt .codex-progress-fill.warn { background-color: #d8ff7c; }
 .theme-retrocrt .codex-progress-fill.danger { background-color: #5aff5a; }
 .theme-retrocrt .codex-progress-fill.unknown { background-color: #2f7a2f; }
+
+
+/* ------------------------------------------------------------------------- */
+/* Layouts                                                                   */
+/* ------------------------------------------------------------------------- */
+
+.codex-inline-separator {
+  min-width: 12px;
+  text-align: center;
+  opacity: 0.32;
+}
+
+/* Cards mantém o comportamento visual tradicional. */
+.layout-cards .codex-inline-separator {
+  width: 0;
+  min-width: 0;
+  margin: 0;
+}
+
+/* Text + Progress: sem fundo, sem borda, só informação + progresso. */
+.layout-text-progress {
+  spacing: 7px;
+  margin-left: 12px;
+}
+
+.layout-text-progress .codex-usage-card {
+  spacing: 7px;
+  padding: 0 2px;
+  margin: 0;
+  background-color: transparent;
+  border: none;
+  border-radius: 0;
+}
+
+.layout-text-progress .codex-usage-card:hover {
+  background-color: transparent;
+  border: none;
+}
+
+.layout-text-progress .codex-usage-label {
+  min-width: 28px;
+  font-size: 0.82em;
+}
+
+.layout-text-progress .codex-usage-percent {
+  min-width: 34px;
+  font-size: 0.84em;
+}
+
+.layout-text-progress .codex-usage-reset {
+  min-width: 50px;
+  font-size: 0.76em;
+  opacity: 0.72;
+}
+
+.layout-text-progress .codex-progress-track {
+  width: 76px;
+}
+
+.layout-text-progress .codex-inline-separator {
+  margin: 0 4px;
+}
+
+/* ------------------------------------------------------------------------- */
+/* Bar styles                                                                */
+/* ------------------------------------------------------------------------- */
+
+/* Solid */
+.barstyle-solid .codex-progress-track {
+  width: 76px;
+  height: 6px;
+  border-radius: 999px;
+}
+
+.barstyle-solid .codex-progress-fill {
+  height: 6px;
+  border-radius: 999px;
+}
+
+/* Thin */
+.barstyle-thin .codex-progress-track {
+  width: 82px;
+  height: 2px;
+  border-radius: 999px;
+  border: none;
+}
+
+.barstyle-thin .codex-progress-fill {
+  height: 2px;
+  border-radius: 999px;
+}
+
+/* Segmented */
+.codex-segment-track {
+  spacing: 2px;
+  width: 78px;
+}
+
+.codex-segment {
+  width: 6px;
+  height: 5px;
+  border-radius: 1px;
+}
+
+.codex-segment.empty {
+  background-color: rgba(255, 255, 255, 0.12);
+}
+
+.codex-segment.filled.ok {
+  background-color: #7fd49b;
+}
+
+.codex-segment.filled.warn {
+  background-color: #e9c46a;
+}
+
+.codex-segment.filled.danger {
+  background-color: #f07178;
+}
+
+.layout-text-progress.barstyle-segmented .codex-usage-card {
+  spacing: 6px;
+}
+
+/* Cores segmentadas alinhadas aos temas. */
+.theme-gnome .codex-segment.filled.ok { background-color: rgba(255,255,255,0.88); }
+.theme-gnome .codex-segment.filled.warn { background-color: rgba(255,255,255,0.66); }
+.theme-gnome .codex-segment.filled.danger { background-color: rgba(255,255,255,0.44); }
+
+.theme-glass .codex-segment.filled.ok { background-color: rgba(120,200,255,0.95); }
+.theme-glass .codex-segment.filled.warn { background-color: rgba(255,205,100,0.95); }
+.theme-glass .codex-segment.filled.danger { background-color: rgba(255,110,130,0.95); }
+
+.theme-tokyo .codex-segment.filled.ok { background-color: #7aa2f7; }
+.theme-tokyo .codex-segment.filled.warn { background-color: #e0af68; }
+.theme-tokyo .codex-segment.filled.danger { background-color: #f7768e; }
+
+.theme-industrial .codex-segment.filled.ok { background-color: #8fbf9f; }
+.theme-industrial .codex-segment.filled.warn { background-color: #d4ad67; }
+.theme-industrial .codex-segment.filled.danger { background-color: #c96f78; }
+
+.theme-catppuccin .codex-segment.filled.ok { background-color: #a6e3a1; }
+.theme-catppuccin .codex-segment.filled.warn { background-color: #f9e2af; }
+.theme-catppuccin .codex-segment.filled.danger { background-color: #f38ba8; }
+
+.theme-nord .codex-segment.filled.ok { background-color: #88c0d0; }
+.theme-nord .codex-segment.filled.warn { background-color: #ebcb8b; }
+.theme-nord .codex-segment.filled.danger { background-color: #bf616a; }
+
+.theme-dracula .codex-segment.filled.ok { background-color: #50fa7b; }
+.theme-dracula .codex-segment.filled.warn { background-color: #f1fa8c; }
+.theme-dracula .codex-segment.filled.danger { background-color: #ff5555; }
+
+.theme-amoled .codex-segment.filled.ok { background-color: #ffffff; }
+.theme-amoled .codex-segment.filled.warn { background-color: #cfcfcf; }
+.theme-amoled .codex-segment.filled.danger { background-color: #8f8f8f; }
+
+.theme-cyberneon .codex-segment.filled.ok { background-color: #00f7ff; }
+.theme-cyberneon .codex-segment.filled.warn { background-color: #ffe66d; }
+.theme-cyberneon .codex-segment.filled.danger { background-color: #ff4fd8; }
+
+.theme-gruvbox .codex-segment.filled.ok { background-color: #b8bb26; }
+.theme-gruvbox .codex-segment.filled.warn { background-color: #fabd2f; }
+.theme-gruvbox .codex-segment.filled.danger { background-color: #fb4934; }
+
+.theme-nothing .codex-segment.filled.ok { background-color: #111111; }
+.theme-nothing .codex-segment.filled.warn { background-color: #4a4a4a; }
+.theme-nothing .codex-segment.filled.danger { background-color: #7a7a7a; }
+.theme-nothing .codex-segment.empty { background-color: rgba(17,17,17,0.10); }
+
+.theme-macos .codex-segment.filled.ok { background-color: #64d2ff; }
+.theme-macos .codex-segment.filled.warn { background-color: #ffd60a; }
+.theme-macos .codex-segment.filled.danger { background-color: #ff453a; }
+
+.theme-material .codex-segment.filled.ok { background-color: #d0bcff; }
+.theme-material .codex-segment.filled.warn { background-color: #ccc2dc; }
+.theme-material .codex-segment.filled.danger { background-color: #efb8c8; }
+
+.theme-steam .codex-segment.filled.ok { background-color: #66c0f4; }
+.theme-steam .codex-segment.filled.warn { background-color: #a4d007; }
+.theme-steam .codex-segment.filled.danger { background-color: #ff6b6b; }
+
+.theme-cyberpunk .codex-segment.filled.ok { background-color: #ffed00; }
+.theme-cyberpunk .codex-segment.filled.warn { background-color: #00e5ff; }
+.theme-cyberpunk .codex-segment.filled.danger { background-color: #ff4fd8; }
+
+.theme-retrocrt .codex-segment.filled.ok { background-color: #7cff7c; }
+.theme-retrocrt .codex-segment.filled.warn { background-color: #d8ff7c; }
+.theme-retrocrt .codex-segment.filled.danger { background-color: #5aff5a; }
