@@ -28,6 +28,7 @@ const THEMES = [
     ['steam', 'Steam'],
     ['cyberpunk', 'Cyberpunk 2077'],
     ['retrocrt', 'Retro CRT'],
+    ['red', 'Crimson Red'],
 ];
 
 const LAYOUTS = [
