@@ -442,3 +442,100 @@
 .theme-retrocrt .codex-segment.filled.ok { background-color: #7cff7c; }
 .theme-retrocrt .codex-segment.filled.warn { background-color: #d8ff7c; }
 .theme-retrocrt .codex-segment.filled.danger { background-color: #5aff5a; }
+
+
+/* Crimson Red */
+.theme-red {
+  spacing: 10px;
+  margin-left: 15px;
+}
+
+.theme-red .codex-usage-card {
+  spacing: 8px;
+  padding: 4px 11px;
+  border-radius: 10px;
+  background-color: rgba(28, 5, 8, 0.96);
+  border: 1px solid rgba(255, 70, 90, 0.34);
+}
+
+.theme-red .codex-usage-card:hover {
+  background-color: rgba(42, 7, 12, 0.99);
+  border-color: rgba(255, 92, 110, 0.52);
+}
+
+.theme-red .codex-usage-label {
+  color: #ff5c70;
+  font-weight: 800;
+  font-size: 0.86em;
+  min-width: 30px;
+}
+
+.theme-red .codex-usage-percent {
+  color: #fff1f3;
+  font-weight: 800;
+  font-size: 0.90em;
+  min-width: 38px;
+}
+
+.theme-red .codex-usage-reset {
+  color: #ff9aa7;
+  font-size: 0.79em;
+  opacity: 0.88;
+  min-width: 54px;
+}
+
+.theme-red .codex-progress-track {
+  width: 76px;
+  height: 6px;
+  border-radius: 999px;
+  background-color: rgba(255, 70, 90, 0.14);
+  border: 1px solid rgba(255, 70, 90, 0.10);
+}
+
+.theme-red .codex-progress-fill {
+  height: 6px;
+  border-radius: 999px;
+}
+
+.theme-red .codex-progress-fill.ok {
+  background-color: #ff4d67;
+}
+
+.theme-red .codex-progress-fill.warn {
+  background-color: #ff7a8c;
+}
+
+.theme-red .codex-progress-fill.danger {
+  background-color: #ffb3bd;
+}
+
+.theme-red .codex-progress-fill.unknown {
+  background-color: #5e1a24;
+}
+
+.theme-red .codex-inline-separator {
+  color: #ff5c70;
+  opacity: 0.42;
+}
+
+.theme-red .codex-segment.empty {
+  background-color: rgba(255, 77, 103, 0.14);
+}
+
+.theme-red .codex-segment.filled.ok {
+  background-color: #ff4d67;
+}
+
+.theme-red .codex-segment.filled.warn {
+  background-color: #ff7a8c;
+}
+
+.theme-red .codex-segment.filled.danger {
+  background-color: #ffb3bd;
+}
+
+.layout-text-progress.theme-red .codex-usage-card,
+.layout-text-progress.theme-red .codex-usage-card:hover {
+  background-color: transparent;
+  border: none;
+}
